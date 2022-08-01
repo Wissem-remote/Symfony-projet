@@ -1,0 +1,50 @@
+{% extends 'base.admin.html.twig' %}
+{% block title 'Admin'%}
+
+{% block body %}
+    <div class="container ">
+        <h1 class="text-center"> Bienvenue dans notre Admin</h1>
+            {% if app.request.get('info') is defined and app.request.get('info') == "success" %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    Votre article à bien etait ajouter !
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {%endif%}
+                {% if app.request.get('update') is defined and app.request.get('update') == "success" %}
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    Votre article à bien etait modifier !
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {%endif%}
+             {% if app.request.get('delete') is defined and app.request.get('delete') == "success" %}
+                <div class="alert alert-alert alert-dismissible fade show" role="alert">
+                    Votre article à bien etait suprimer !
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {%endif%}
+
+            <div class="row  w-75 m-auto">
+                {%for info in infos %}
+                <div class=" col-3 m-3">
+                
+                    <div class="card " >
+                        <img src="{% if info.image != null %}uploads/article/{{info.image}} {% else %} https://picsum.photos/id/877/300/230 {%endif%}" class="card-img-top" alt="{{info.id}}">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">{{info.name}}</h5>
+                                <p class="card-text ">Desc : {{info.description}}</p>
+                                <p> Nb : {{info.nombre}}</p>
+                                <a class="btn btn-primary" href="{{ path('admin.edit',{id: info.id}) }}" class="text-decoration-none">
+                                Up-Date
+                                </a>
+                                   <a class="btn btn-danger" href="{{ path('admin.delete',{id: info.id}) }}" class="text-decoration-none">
+                                delete
+                                </a>
+                            </div>
+                        </div>
+                   
+                </div>
+                {%endfor%}
+            </div>
+                
+    </div>
+{% endblock %}

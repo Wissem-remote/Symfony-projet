@@ -15,26 +15,24 @@
         {% endblock %}
     </head>
     <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
            <div class="container-fluid me-2 ms-2">
-            <span class="navbar-brand " >
-            
-            <a class="text-decoration-none" href='{{ path('app_login') }}'>INGINUIS</a>
-            </span>
+            <span class="navbar-brand " >Admin</span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse " id="navbarNav">
-            <div class="navbar-nav ms-auto">
-            <a class="nav-link {%if nav is defined and nav == 'acceuil'%}active {% endif%}" href='{{ path('home') }}'>ACCEUIL</a>
-            <a class="nav-link  {%if nav is defined and nav == 'boutique'%}active {% endif%}" href='{{ path('store.index') }}'>BOUTIQUE</a>
-            <a class="nav-link {%if nav is defined and nav == 'accesoiries'%}active {% endif%}" href='{{ path('skills.index') }}'>ACCESSOIRIES</a>
-            <a class="nav-link {%if nav is defined and nav == 'contact'%}active {% endif%}" href='{{ path('contact') }}'>CONTACT</a>
+            <div class="navbar-nav ">
+            <a class="nav-link {%if nav is defined and nav == 'admin'%}active {% endif%}" href='{{ path('admin') }}'>Acceuil</a>
+            <a class="nav-link {%if nav is defined and nav == 'add'%}active {% endif%}" href='{{ path('admin.add') }}'>Ajouter des Article</a>
             
+            
+            </div>
+            <div class="ms-auto">
+            <a class="btn btn-primary" href="{{path('app_logout')}}" > Logout </a>
             </div>
             </div>
             </nav>
-            
         {% block body %}
         
         {% endblock %}
