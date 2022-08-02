@@ -39,7 +39,7 @@ class Home extends AbstractController
         // $info=$doctrine->getRepository(User::class);
         // dump($info);
         $info = $this->user->find(1);
-        dump($info);
+        //dump($info);
         return $this->render('pages/home.html.twig',[
             'nav' => 'acceuil'
         ]);

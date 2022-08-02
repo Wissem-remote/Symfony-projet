@@ -31,7 +31,7 @@ class Admin extends AbstractController
     {
 
         $info = $this->user->findAll();
-        dump($info);
+        //dump($info);
         
         return $this->render('admin/admin.html.twig',[
             'nav' => 'Admin',
@@ -48,7 +48,7 @@ class Admin extends AbstractController
     {
 
         $info = $this->user->findAll();
-        dump($info);
+        //dump($info);
         // on fait passer notre class Article #table
         $article = new Article;
         // on crée notre formulaire grace Article en lui donnant comme Image notre class Article
@@ -98,7 +98,7 @@ class Admin extends AbstractController
     {
 
         $info = $this->user->findAll();
-        dump($info);
+        //dump($info);
         // on check si article est egale a null on l'instancie à zero
         if(!$article){
               // on fait passer notre class Article #table
