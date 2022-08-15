@@ -5,7 +5,31 @@
     <div class="container text-center">
         <h1> Ajouter un Article</h1>
         <div class="w-75 form-control m-auto">
-            {{form(form)}}
+            {{form_start(form)}}
+                <div class="row">
+                    <div class=" col-sm-6">
+                    {{form_row(form.name)}}
+                    </div>
+                    <div class=" col-sm-6">
+                        {{form_row(form.nombre)}}
+                    </div>
+                    <div class=" col-sm-12">
+                        {{form_row(form.description)}}
+                    </div>
+                    <div class=" col-sm-6">
+                        {{form_row(form.image)}}
+                    </div>
+                    <div class=" col-sm-6">
+                        {{form_row(form.type)}}
+                    </div>
+
+                    <div class="col-sm-2 m-auto">
+                        {{form_row(form.Editer)}}
+                    </div>
+
+
+                </div>
+            {{form_end(form)}}
         </div>
 
       
